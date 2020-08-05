@@ -16,7 +16,7 @@ export class Crate extends Entity {
         {
           button: ActionButton.PRIMARY,
           hoverText: "Pick Up",
-          distance: 8
+          distance: 5
         }
       )
     )
