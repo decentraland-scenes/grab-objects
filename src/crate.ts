@@ -1,4 +1,5 @@
 export class Crate extends Entity {
+  isGrabbed: boolean = false
 
   constructor(model: GLTFShape, transform: Transform) {
     super()

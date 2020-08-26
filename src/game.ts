@@ -30,16 +30,12 @@ putDownSound.addComponent(new Transform())
 putDownSound.getComponent(Transform).position = Camera.instance.position
 engine.addEntity(putDownSound)
 
-// Grab
-@Component("grabbedFlag")
-class GrabbedFlag {}
-
 // Controls
 Input.instance.subscribe("BUTTON_DOWN", ActionButton.PRIMARY, false, (e) => {
   let transform = crate.getComponent(Transform)
-  if (!crate.hasComponent(GrabbedFlag)) {
+  if (!crate.isGrabbed) {
+    crate.isGrabbed = true
     pickUpSound.getComponent(AudioSource).playOnce()
-    crate.addComponent(new GrabbedFlag())
 
     // Calculates the crate's position relative to the camera
     transform.position = Vector3.Zero()
@@ -47,8 +43,8 @@ Input.instance.subscribe("BUTTON_DOWN", ActionButton.PRIMARY, false, (e) => {
     transform.position.z += Z_OFFSET
     crate.setParent(Attachable.PLAYER)
   } else {
+    crate.isGrabbed = false
     putDownSound.getComponent(AudioSource).playOnce()
-    crate.removeComponent(GrabbedFlag)
 
     // Calculate crate's ground position
     crate.setParent(null) // Remove parent
