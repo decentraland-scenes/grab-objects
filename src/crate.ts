@@ -1,5 +1,4 @@
 export class Crate extends Entity {
-  isGrabbed: boolean = false
 
   constructor(model: GLTFShape, transform: Transform) {
     super()
@@ -10,12 +9,11 @@ export class Crate extends Entity {
     this.addComponent(
       new OnPointerDown(
         () => {
-          this.isGrabbed = true
-          this.getComponent(OnPointerDown).hoverText = "Put Down"
+          // Do nothing
         },
         {
           button: ActionButton.PRIMARY,
-          hoverText: "Pick Up",
+          hoverText: "Pick Up / Put Down",
           distance: 5
         }
       )
