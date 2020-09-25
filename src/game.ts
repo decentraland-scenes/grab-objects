@@ -41,7 +41,7 @@ Input.instance.subscribe("BUTTON_DOWN", ActionButton.PRIMARY, false, (e) => {
     transform.position = Vector3.Zero()
     transform.rotation = Quaternion.Zero()
     transform.position.z += Z_OFFSET
-    crate.setParent(Attachable.PLAYER)
+    crate.setParent(Attachable.AVATAR)
   } else {
     crate.isGrabbed = false
     putDownSound.getComponent(AudioSource).playOnce()
