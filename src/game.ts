@@ -21,13 +21,13 @@ const crate = new Crate(
 const pickUpSound = new Entity()
 pickUpSound.addComponent(new AudioSource(new AudioClip('sounds/pickUp.mp3')))
 pickUpSound.addComponent(new Transform())
-pickUpSound.getComponent(Transform).position = Camera.instance.position
+pickUpSound.setParent(Attachable.AVATAR)
 engine.addEntity(pickUpSound)
 
 const putDownSound = new Entity()
 putDownSound.addComponent(new AudioSource(new AudioClip('sounds/putDown.mp3')))
 putDownSound.addComponent(new Transform())
-putDownSound.getComponent(Transform).position = Camera.instance.position
+putDownSound.setParent(Attachable.AVATAR)
 engine.addEntity(putDownSound)
 
 // Controls
