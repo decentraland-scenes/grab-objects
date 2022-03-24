@@ -6,7 +6,7 @@ export class Crate extends Entity {
     engine.addEntity(this)
     this.addComponent(model)
     this.addComponent(transform)
-    
+
     this.addComponent(
       new OnPointerDown(
         () => {
@@ -14,7 +14,7 @@ export class Crate extends Entity {
         },
         {
           button: ActionButton.PRIMARY,
-          hoverText: "Pick Up / Put Down",
+          hoverText: 'Pick Up / Put Down',
           distance: 5
         }
       )

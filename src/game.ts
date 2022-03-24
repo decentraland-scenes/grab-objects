@@ -13,7 +13,7 @@ const GROUND_HEIGHT = 0.55
 const crate = new Crate(
   new GLTFShape('models/crate.glb'),
   new Transform({
-    position: new Vector3(8, GROUND_HEIGHT, 8),
+    position: new Vector3(8, GROUND_HEIGHT, 8)
   })
 )
 
@@ -32,7 +32,7 @@ engine.addEntity(putDownSound)
 
 // Controls
 Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (e) => {
-  let transform = crate.getComponent(Transform)
+  const transform = crate.getComponent(Transform)
   if (!crate.isGrabbed) {
     crate.isGrabbed = true
     pickUpSound.getComponent(AudioSource).playOnce()
@@ -48,7 +48,7 @@ Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (e) => {
 
     // Calculate crate's ground position
     crate.setParent(null) // Remove parent
-    let forwardVector: Vector3 = Vector3.Forward()
+    const forwardVector: Vector3 = Vector3.Forward()
       .scale(Z_OFFSET)
       .rotate(Camera.instance.rotation)
     transform.position = Camera.instance.position.clone().add(forwardVector)
