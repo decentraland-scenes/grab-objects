@@ -21,14 +21,16 @@ const crate = new Crate(
 const pickUpSound = new Entity()
 pickUpSound.addComponent(new AudioSource(new AudioClip('sounds/pickUp.mp3')))
 pickUpSound.addComponent(new Transform())
-pickUpSound.setParent(Attachable.AVATAR)
 engine.addEntity(pickUpSound)
+pickUpSound.setParent(Attachable.AVATAR)
+
 
 const putDownSound = new Entity()
 putDownSound.addComponent(new AudioSource(new AudioClip('sounds/putDown.mp3')))
 putDownSound.addComponent(new Transform())
-putDownSound.setParent(Attachable.AVATAR)
 engine.addEntity(putDownSound)
+putDownSound.setParent(Attachable.AVATAR)
+
 
 // Controls
 Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (e) => {
